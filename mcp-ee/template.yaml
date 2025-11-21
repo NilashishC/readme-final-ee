@@ -20,7 +20,7 @@ spec:
         baseImage:
           title: Base execution environment image
           type: string
-          default: 'registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9:latest'
+          default: 'registry.access.redhat.com/ubi9/python-311:latest'
           enum:
             - 'registry.access.redhat.com/ubi9/python-311:latest'
             - 'registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9:latest'
@@ -82,7 +82,7 @@ spec:
         collections:
           title: Ansible Collections
           type: array
-          default: [{"name":"community.docker"},{"name":"ansible.mcp_builder"},{"name":"ansible.mcp"}]
+          default: [{"name":"ansible.windows"},{"name":"ansible.mcp_builder"},{"name":"ansible.mcp"}]
           description: Add collections manually
           items:
             type: object
@@ -195,7 +195,7 @@ spec:
         mcpServers:
           title: MCP Servers
           type: array
-          default: ["aws_iam_mcp","github_mcp","azure_mcp","aws_core_mcp","aws_ccapi_mcp"]
+          default: ["azure_mcp","aws_core_mcp","github_mcp","aws_iam_mcp"]
           items:
             type: string
             title: MCP Server
@@ -222,7 +222,7 @@ spec:
         additionalBuildSteps:
           title: Additional Build Steps
           type: array
-          default: [{"stepType":"prepend_base","commands":["COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg","COPY _build/configs/mcp-vars.yaml /tmp/mcp-vars.yaml"]},{"stepType":"append_final","commands":["RUN ansible-playbook ansible.mcp_builder.install_mcp -e mcp_servers=aws_iam_mcp,github_mcp,azure_mcp,aws_core_mcp,aws_ccapi_mcp -e @/tmp/mcp-vars.yaml","RUN rm -f /etc/ansible/ansible.cfg /tmp/mcp-vars.yaml"]}]
+          default: [{"stepType":"prepend_base","commands":["COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg","COPY _build/configs/mcp-vars.yaml /tmp/mcp-vars.yaml"]},{"stepType":"append_final","commands":["RUN ansible-playbook ansible.mcp_builder.install_mcp -e mcp_servers=azure_mcp,aws_core_mcp,github_mcp,aws_iam_mcp -e @/tmp/mcp-vars.yaml","RUN rm -f /etc/ansible/ansible.cfg /tmp/mcp-vars.yaml"]}]
           items:
             type: object
             properties:
