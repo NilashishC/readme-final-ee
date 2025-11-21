@@ -3,12 +3,11 @@ version: 3
 
 images:
   base_image:
-    name: 'registry.access.redhat.com/ubi9/python-311:latest'
+    name: 'registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9:latest'
 
 dependencies:
   galaxy:
     collections:
-      - name: ansible.windows
       - name: ansible.mcp_builder
       - name: ansible.mcp
 
@@ -18,10 +17,13 @@ additional_build_files:
   - src: ./mcp-vars.yaml
     dest: configs
 
+options:
+  package_manager_path: /usr/bin/microdnf
+
 additional_build_steps:
   prepend_base:
     - COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg
     - COPY _build/configs/mcp-vars.yaml /tmp/mcp-vars.yaml
   append_final:
-    - RUN ansible-playbook ansible.mcp_builder.install_mcp -e mcp_servers=azure_mcp,aws_core_mcp,github_mcp,aws_iam_mcp -e @/tmp/mcp-vars.yaml
+    - RUN ansible-playbook ansible.mcp_builder.install_mcp -e mcp_servers=azure_mcp,aws_core_mcp,aws_cdk_mcp,aws_ccapi_mcp,github_mcp -e @/tmp/mcp-vars.yaml
     - RUN rm -f /etc/ansible/ansible.cfg /tmp/mcp-vars.yaml
