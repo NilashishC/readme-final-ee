@@ -5,6 +5,7 @@ metadata:
   description: MCP EE
   tags:
     - execution-environment
+    - mcp
   annotations:
     backstage.io/techdocs-ref: dir:.
     backstage.io/managed-by-location: github.com?repo=readme-final-ee&owner=NilashishC
