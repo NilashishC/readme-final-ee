@@ -4,13 +4,21 @@ This file tells how to build your defined **execution environment (EE)** using *
 
 
 [Ansible Execution Environment Definition File: Getting Started Guide](#ansible-execution-environment-definition-file-getting-started-guide)
+
 - [Step 1: Review What Was Generated](#step-1-review-what-was-generated)
+
 - [Step 2: Confirm Access to Collection Sources](#step-2-confirm-access-to-collection-sources)
+
 - [Step 3: Install Required Tools](#step-3-install-required-tools)
+
 - [Step 4: Build Your Execution Environment](#step-4-build-your-execution-environment)
+
 - [Step 5 (Recommended): Test Your EE Locally](#step-5-recommended-test-your-ee-locally)
+
 - [Step 6: Push to a Container Registry](#step-6-push-to-a-container-registry)
+
 - [Step 7: Use Your EE in Ansible Automation Platform](#step-7-use-your-ee-in-ansible-automation-platform)
+
 - [Step 8 (Optional): Import EE template into self-service automation portal](#step-8-optional-import-ee-template-into-self-service-automation-portal)
 
 ## Step 1: Review What Was Generated
