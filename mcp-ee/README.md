@@ -3,33 +3,24 @@
 This file tells how to build your defined **execution environment (EE)** using **An1sible Builder** (the tool used to build EEs). An **EE** is a container image that bundles all the tools and collections your automation needs to run consistently.
 
 
-[Ansible Execution Environment Definition File: Getting Started Guide](#ansible-execution-environment-definition-file-getting-started-guide)
+## TL;DR: Build Your Execution Environment
 
-- [Step 1: Review What Was Generated](#step-1-review-what-was-generated)
+**Quick Start**: Install `ansible-builder`, `podman` (or Docker), and `ansible-navigator`, then run:
 
-- [Step 2: Confirm Access to Collection Sources](#step-2-confirm-access-to-collection-sources)
-
-- [Step 3: Install Required Tools](#step-3-install-required-tools)
-
-- [Step 4: Build Your Execution Environment](#step-4-build-your-execution-environment)
-
-- [Step 5 (Recommended): Test Your EE Locally](#step-5-recommended-test-your-ee-locally)
-
-- [Step 6: Push to a Container Registry](#step-6-push-to-a-container-registry)
-
-- [Step 7: Use Your EE in Ansible Automation Platform](#step-7-use-your-ee-in-ansible-automation-platform)
-
-- [Step 8 (Optional): Import EE template into self-service automation portal](#step-8-optional-import-ee-template-into-self-service-automation-portal)
+```bash
+ansible-builder build --file mcp-ee.yaml --tag mcp-ee.yaml:latest --container-runtime podman
+```
+**Important**: This quick start only builds the EE. Please continue reading to configure collection sources, install required tools, test your EE, push it to a registry, and use it in AAP.
 
 ## Step 1: Review What Was Generated
 
 First, let us review the files that were just created for you:
 
-- **`mcp-ee.yaml`**: This is your EE's "blueprint." It's the main definition file that ansible-builder will use to construct your image.
-- **`mcp-ee-template.yaml`**: This is the Ansible self-service automation portal template file that generated this. You can import it and use it as a base to create new templates for your portal.
-- **`mcp-vars.yaml`**: This Ansible variables file contains variables for the selected **Model Context Protocol (MCP) servers** which will be used when installing them in the Execution Environment.
-- **`ansible.cfg`**: This Ansible configuration file specifies the sources from which your collections will be retrieved, by default it includes **Automation Hub** and **Ansible Galaxy**.
-- **`catalog-info.yaml`**: This is the Ansible self-service automation portal file that registers this as a "component" in your portal's catalog.
+- **mcp-ee.yaml**: This is your EE's "blueprint." It's the main definition file that ansible-builder will use to construct your image.
+- **mcp-ee-template.yaml**: This is the Ansible self-service automation portal template file that generated this. You can import it and use it as a base to create new templates for your portal.
+- **mcp-vars.yaml**: This Ansible variables file contains variables for the selected **Model Context Protocol (MCP) servers** which will be used when installing them in the Execution Environment.
+- **ansible.cfg**: This Ansible configuration file specifies the sources from which your collections will be retrieved, by default it includes **Automation Hub** and **Ansible Galaxy**.
+- **catalog-info.yaml**: This is the Ansible self-service automation portal file that registers this as a "component" in your portal's catalog.
 
 ## Step 2: Confirm Access to Collection Sources
 
