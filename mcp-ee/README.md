@@ -165,7 +165,7 @@ podman login your-internal-registry.com
 podman push your-internal-registry.com/mcp-ee:latest
 ```
 
-# Step 7: Use Your EE in Ansible Automation Platform
+## Step 7: Use Your EE in Ansible Automation Platform
 
 Once your execution environment is built and pushed to a registry, you need to register it in AAP.
 
