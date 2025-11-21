@@ -10,7 +10,7 @@ This file tells how to build your defined **execution environment (EE)** using *
 ```bash
 ansible-builder build --file mcp-ee.yaml --tag mcp-ee.yaml:latest --container-runtime podman
 ```
-**Important**: This quick start only builds the EE. Please continue reading to configure collection sources, install required tools, test your EE, push it to a registry, and use it in AAP.
+**Important**: This quick start only builds the EE. Please continue reading to configure collection sources, test your EE, push it to a registry, and use it in AAP.
 
 ## Step 1: Review What Was Generated
 
