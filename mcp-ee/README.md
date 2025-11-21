@@ -30,11 +30,11 @@ If your EE relies on collections from **Automation Hub**, **Private Automation H
 
 **Configure Automation Hub access**
 
-**Automation Hub** is already configured as a source in the generated **ansible.cfg** file. Open the file in your favorite text editor and update both the `token` fields with your **Automation Hub** token. If you already have a token, please ensure that it has not expired.
+**Automation Hub** is already configured as a source in the generated **ansible.cfg** file. Open the file in your favorite text editor and update both the `token` fields with your **Automation Hub** token. 
 
-If you do not have a token, please follow these steps:
+If you already have a token, please ensure that it has not expired. If you do not have a token, please follow these steps:
 
-1. Navigate to [Ansible Automation Platform on the Red Hat Hybrid Cloud Console](Ansible Automation Platform on the Red Hat Hybrid Cloud Console).
+1. Navigate to [Ansible Automation Platform on the Red Hat Hybrid Cloud Console](https://console.redhat.com/ansible/automation-hub/token/).
 2. From the navigation panel, select **Automation Hub** → **Connect to Hub**.
 3. Under **Offline token**, click **Load Token**.
 4. Click the [**Copy to clipboard**] icon to copy the offline token.
